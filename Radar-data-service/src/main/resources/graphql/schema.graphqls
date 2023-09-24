@@ -1,0 +1,22 @@
+
+type Query {
+  allRadars: [Radar]
+  RadarById(id: Int): Radar
+}
+
+type Mutation {
+  saveRadar(radar: RadarRequest): Radar
+}
+
+type Radar {
+  id: Int
+  maxVitesse: Int
+  latitude: Float
+  langitude: Float
+}
+
+input RadarRequest {
+  maxVitesse: Int
+  latitude: Float
+  langitude: Float
+}
