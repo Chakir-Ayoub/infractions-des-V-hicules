@@ -1,0 +1,28 @@
+type Query {
+  GetAll: [Infraction]
+  GetById(id: Int): Infraction
+}
+
+type Mutation {
+  SaveInfraction(infraction: InfractionRequest): Infraction
+  Delete(id: Int): Boolean 
+}
+
+type Infraction {
+  id: Int
+  dateInfraction: String  
+  matricule: Int
+  vitesseVehicule: Int
+  vitesseMaxRadar: Int
+  montantInfraction: Float
+  radar: Int
+}
+
+input InfractionRequest {
+  dateInfraction: String  
+  matricule: Int
+  vitesseVehicule: Int
+  vitesseMaxRadar: Int
+  montantInfraction: Float
+  radar: Int
+}
