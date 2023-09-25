@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package com.example.demo.stub;
+
+service InfractionService {
+  rpc GetAllInfraction (GetAllInfractionsRequest) returns (GetInfractionsResponse);
+  rpc GetInfractionById (GetInfractionByIdRequest) returns (GetInfractionByIdResponse);
+  rpc SaveInfraction (SaveInfractionRequest) returns (SaveInfractionResponse);
+  
+}
+
+message GetAllInfractionsRequest {}
+
+message GetInfractionsResponse {
+  repeated Infraction infractions = 1;
+}
+
+message infractionId {
+  int64 id = 1;
+}
+
+message Infraction {
+  int64 id = 1;
+  int64 matricule = 3;
+  int64 vitesseVehicule = 4; // Renommer "vitessedeVehicule" en "vitesseVehicule"
+  int64 vitesseMaxRadar = 5;
+  float montantInfraction = 6;
+  int64 radar = 7;
+}
+
+message GetInfractionByIdRequest {
+  int64 id = 1;
+}
+
+message GetInfractionByIdResponse {
+  Infraction infraction = 1;
+}
+
+message SaveInfractionRequest {
+  InfractionRequest infraction = 1;
+}
+
+message InfractionRequest {
+  int64 matricule = 2;
+  int64 vitesseVehicule = 3; 
+  int64 vitesseMaxRadar = 4;
+  float montantInfraction = 5;
+  int64 radar = 6;
+}
+
+message SaveInfractionResponse {
+  Infraction infraction = 1;
+}
+
+

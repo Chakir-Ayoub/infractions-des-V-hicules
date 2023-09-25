@@ -7,6 +7,7 @@ import com.example.demo.dto.InfractionsDTO;
 import com.example.demo.entity.Infractions;
 import com.example.demo.request.InfractionsReqieust;
 import com.example.demo.response.InfractionsResponse;
+import com.example.demo.stub.InfractionServiceOuterClass;
 
 @Component
 public class InfractionsMapper {
@@ -27,5 +28,22 @@ public class InfractionsMapper {
 	
 	public InfractionsDTO frominfractionsDtoToEntity(Infractions infractions) {
 		return modelMapper.map(infractions, InfractionsDTO.class);
+	}
+	
+	public InfractionServiceOuterClass.Infraction fromInfractionEntity(Infractions infractions){
+		return modelMapper.map(infractions, InfractionServiceOuterClass.Infraction.Builder.class).build();
+	}
+	
+	public InfractionServiceOuterClass.Infraction fromInfractionResponse(InfractionsDTO infractionsResponse){
+		return modelMapper.map(infractionsResponse, InfractionServiceOuterClass.Infraction.Builder.class).build();
+	}
+	
+	public InfractionServiceOuterClass.Infraction fromInfractionResponse2(InfractionsResponse infractionsResponse){
+		return modelMapper.map(infractionsResponse, InfractionServiceOuterClass.Infraction.Builder.class).build();
+	}
+
+	
+	public Infractions fromInfractionRequest(InfractionServiceOuterClass.InfractionRequest infractionRequest) {
+		return modelMapper.map(infractionRequest, Infractions.class);
 	}
 }
