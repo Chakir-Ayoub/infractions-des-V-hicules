@@ -11,7 +11,6 @@ import com.example.demo.dto.InfractionsDTO;
 import com.example.demo.entity.Infractions;
 import com.example.demo.mapper.InfractionsMapper;
 import com.example.demo.repository.InfractionsRepository;
-import com.example.demo.response.InfractionsResponse;
 import com.example.demo.service.InfractionsService;
 import com.example.demo.stub.InfractionServiceGrpc.InfractionServiceImplBase;
 import com.example.demo.stub.InfractionServiceOuterClass;
@@ -21,7 +20,6 @@ import com.example.demo.stub.InfractionServiceOuterClass.GetInfractionByIdRespon
 import com.example.demo.stub.InfractionServiceOuterClass.GetInfractionsResponse;
 import com.example.demo.stub.InfractionServiceOuterClass.SaveInfractionRequest;
 import com.example.demo.stub.InfractionServiceOuterClass.SaveInfractionResponse;
-import com.example.demo.stub.InfractionServiceOuterClass.infractionId;
 
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;

@@ -44,9 +44,10 @@ public class RadarController {
 	}
 	
 	@GetMapping(path = "{id}")
-	public ResponseEntity<RadarResponse> GetById(@PathVariable UUID id){
+	public RadarResponse GetById(@PathVariable UUID id){
 		RadarDTO radarDTO=radarService.GetById(id);
-		return new ResponseEntity<RadarResponse>(radarMapper.fromRadarDtoTOresponse(radarDTO),HttpStatus.ACCEPTED);
+		RadarResponse radarResponse=radarMapper.fromRadarDtoTOresponse(radarDTO);
+		return radarResponse;
 	}
 	
 	@PostMapping
