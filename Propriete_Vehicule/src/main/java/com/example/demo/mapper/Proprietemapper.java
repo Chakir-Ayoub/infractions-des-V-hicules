@@ -25,4 +25,8 @@ public class Proprietemapper {
 		return modelMapper.map(proprieterDto, ProprieterResponse.class);
 	}
 	
+	public ProprieterDto fromDTOEntity(Propriete propriete) {
+		return modelMapper.map(propriete, ProprieterDto.class);
+	}
+	
 }

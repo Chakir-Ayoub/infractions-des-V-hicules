@@ -14,9 +14,12 @@ public class Vehiculemapper {
 	private ModelMapper modelMapper=new ModelMapper();
 	
 	public Vehicule fromDto(VehiculeDto vehiculeDto) {return modelMapper.map(vehiculeDto, Vehicule.class);}
+	
 	public VehiculeRespnse fromDTOResponse(VehiculeDto vehiculeDto) {return modelMapper.map(vehiculeDto, VehiculeRespnse.class);}
+	
 	public VehiculeDto fromRequest(VehiculeRequest vehiculeRequest) {return modelMapper.map(vehiculeRequest, VehiculeDto.class);}
 	
+	public VehiculeDto fromEntity(Vehicule vehicule) {return modelMapper.map(vehicule, VehiculeDto.class);}
 	
 	
 }
