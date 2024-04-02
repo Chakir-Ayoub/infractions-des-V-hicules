@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Configuration_Server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Configuration_Server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Euereka_Service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Infraction/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Propriete_Vehicule/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Radar-data-service/src/main/java" charset="UTF-8" />

@@ -10,6 +10,9 @@ spring:
         native:
           search-locations:
             - file:///C:\Users\ayoub\Infraction_Maroc
-
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka
 server:
   port: 8071

@@ -10,6 +10,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Euereka_Service" />
         <module name="Infractions (1)" />
         <module name="Radar-data-service" />
         <module name="Configuration_Server" />
@@ -25,6 +26,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Configuration_Server" options="-parameters" />
+      <module name="Euereka_Service" options="-parameters" />
       <module name="Infractions" options="-parameters" />
       <module name="Infractions (1)" options="-parameters" />
       <module name="Infractions (2)" options="-parameters" />
