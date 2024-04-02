@@ -6,8 +6,11 @@ import java.util.List;
 import com.example.demo.dto.VehiculeDto;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class ProprieterRequest {
 	private String nom;
 	private String prenom;

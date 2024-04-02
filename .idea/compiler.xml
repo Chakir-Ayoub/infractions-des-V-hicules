@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <excludeFromCompile>
+      <directory url="file://$PROJECT_DIR$/configuration_server/src/main/resources/archetype-resources" includeSubdirectories="true" />
+    </excludeFromCompile>
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Infractions (1)" />
+        <module name="Radar-data-service" />
+        <module name="Infractions (2)" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Configuration_server" target="1.7" />
+      <module name="configuration_server" target="17" />
+      <module name="Infractions" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Infractions" options="-parameters" />
+      <module name="Infractions (1)" options="-parameters" />
+      <module name="Infractions (2)" options="-parameters" />
+      <module name="Radar-data-service" options="-parameters" />
+      <module name="configuration_server" options="-parameters" />
+    </option>
+  </component>
+</project>

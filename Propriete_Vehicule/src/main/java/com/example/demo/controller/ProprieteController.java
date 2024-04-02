@@ -49,6 +49,7 @@ public class ProprieteController {
 	@PostMapping
 	public ProprieterResponse AddPropriete(@RequestBody ProprieterRequest proprieterRequest) {
 		ProprieterDto proprieterDto=proprietemapper.fromRequest(proprieterRequest);
+
 		return proprietemapper.fromDtoResponse(proprieteService.AddPropriete(proprieterDto));
 	}
 	

@@ -3,6 +3,7 @@ package com.example.demo.serviceImpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.demo.dto.VehiculeDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,6 @@ public class ProprieteServiceImpl implements proprieteService {
 		// TODO Auto-generated method stub
 		List<Propriete> proprietes=proprieteRepository.findAll();
 		List<ProprieterDto> dtos=new ArrayList<>();
-
 		for (Propriete propriete : proprietes) {
 			dtos.add(proprietemapper.fromDTOEntity(propriete));
 		}
@@ -34,6 +34,11 @@ public class ProprieteServiceImpl implements proprieteService {
 	@Override
 	public ProprieterDto AddPropriete(ProprieterDto proprieterDto) {
 		// TODO Auto-generated method stub
+		for(int i=0;i<proprieterDto.getVehicules().size();i++){
+			VehiculeDto vehiculeDto=proprieterDto.getVehicules().get(i);
+			vehiculeDto.setPropriete(proprieterDto);
+			proprieterDto.getVehicules().set(i,vehiculeDto);
+		}
 		Propriete propriete=proprietemapper.fromDTO(proprieterDto);
 		Propriete propriete2= proprieteRepository.save(propriete);
 		return proprietemapper.fromDTOEntity(propriete2);

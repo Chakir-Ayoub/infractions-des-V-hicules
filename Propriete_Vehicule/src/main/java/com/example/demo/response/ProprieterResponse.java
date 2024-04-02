@@ -3,8 +3,11 @@ package com.example.demo.response;
 import java.time.LocalDate;
 import java.util.List;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class ProprieterResponse {
 	private String nom;
 	private String prenom;

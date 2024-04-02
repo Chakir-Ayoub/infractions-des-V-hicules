@@ -10,5 +10,4 @@ public class VehiculeRespnse {
 	private String marque;
 	private Long models;
 	private Long puissanceFiscale;
-	private ProprieterResponse propriete;
 }
