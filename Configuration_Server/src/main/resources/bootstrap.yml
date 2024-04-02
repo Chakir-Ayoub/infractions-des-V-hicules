@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: native
+
+  cloud:
+    config:
+      server:
+        native:
+          search-locations:
+            - file:///C:\Users\ayoub\Infraction_Maroc
+
+server:
+  port: 8071

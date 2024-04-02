@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/Configuration_server/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Configuration_server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Configuration_Server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Configuration_Server/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Infraction/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Propriete_Vehicule/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Radar-data-service/src/main/java" charset="UTF-8" />

@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: infraction
+  profiles:
+    active: dev
+  cloud:
+    config:
+      uri: http://localhost:8071
+    compatibility-verifier:
+      enabled: false
