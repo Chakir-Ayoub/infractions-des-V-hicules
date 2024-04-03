@@ -27,13 +27,13 @@ public class RadarRestClientController {
 	
 	@GetMapping("/radars")
 	public List<Radar> ListRadar(){
-		Radar[] radar=restTemplate.getForObject("http://localhost:8082/Radar", Radar[].class);
+		Radar[] radar=restTemplate.getForObject("http://RADAR/Radar", Radar[].class);
 		return List.of(radar);
 	}
 	
 	@GetMapping("/radar/{id}")
 	public Radar RadarById(@PathVariable UUID id) {
-		Radar radar=restTemplate.getForObject("http://localhost:8082/Radar/"+id, Radar.class);
+		Radar radar=restTemplate.getForObject("http://RADAR/Radar/"+id, Radar.class);
 		return radar;
 	}
 	

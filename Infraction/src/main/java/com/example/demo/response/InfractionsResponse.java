@@ -1,6 +1,7 @@
 package com.example.demo.response;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import lombok.Data;
 
@@ -12,4 +13,5 @@ public class InfractionsResponse {
 	private Long vitessedeVehicule;
 	private Long vitesseMaxRadar;
 	private float montantInfraction;
+
 }

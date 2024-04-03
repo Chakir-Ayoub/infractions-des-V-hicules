@@ -1,6 +1,7 @@
 package com.example.demo.dto;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import lombok.Data;
 
@@ -12,4 +13,5 @@ public class InfractionsDTO {
 	private Long vitessedeVehicule;
 	private Long vitesseMaxRadar;
 	private float montantInfraction;
+
 }
