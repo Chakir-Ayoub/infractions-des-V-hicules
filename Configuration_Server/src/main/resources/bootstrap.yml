@@ -9,7 +9,7 @@ spring:
       server:
         native:
           search-locations:
-            - file:///C:\Users\ayoub\Infraction_Maroc
+            - file:///C:\Users\hp\Infraction_Maroc
   eureka:
     client:
       service-url:

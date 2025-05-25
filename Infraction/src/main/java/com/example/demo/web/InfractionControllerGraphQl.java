@@ -3,6 +3,7 @@ package com.example.demo.web;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.demo.serviceimpl.InfractionserviceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
@@ -24,7 +25,7 @@ import com.example.demo.service.InfractionsService;
 public class InfractionControllerGraphQl {
 	
 	@Autowired
-	private InfractionsService infractionsService;
+	private InfractionserviceImpl infractionsService;
 	@Autowired
 	private InfractionsMapper infractionsMapper;
 	

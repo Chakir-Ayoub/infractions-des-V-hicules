@@ -3,6 +3,7 @@ package com.example.demo.web;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.demo.serviceimpl.InfractionserviceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +22,7 @@ import jakarta.jws.WebService;
 public class InfractionControllerSoap {
 	
 	@Autowired
-	InfractionsService infractionsService;
+	InfractionserviceImpl infractionsService;
 	@Autowired
 	InfractionsMapper infractionsMapper;
 	

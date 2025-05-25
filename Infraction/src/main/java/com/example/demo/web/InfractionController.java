@@ -2,7 +2,12 @@ package com.example.demo.web;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
+import com.example.demo.model.Radar;
+import com.example.demo.serviceimpl.InfractionserviceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,10 +28,10 @@ import com.example.demo.service.InfractionsService;
 public class InfractionController {
 	
 	@Autowired
-	private InfractionsService infractionsService;
+	private InfractionserviceImpl infractionsService;
 	@Autowired
 	private InfractionsMapper infractionsMapper=new InfractionsMapper();
-	
+
 	@GetMapping
 	public List<InfractionsResponse> GetAll(){
 		List<InfractionsDTO> infractionsDTO =infractionsService.GetAll();
@@ -54,5 +59,11 @@ public class InfractionController {
 	@DeleteMapping(path = "{id}")
 	public void Delete(@PathVariable Long id) {
 		infractionsService.DeleteInfraction(id);
+	}
+
+	@GetMapping("radars")
+	public List<Radar> GetAllRadar() throws TimeoutException {
+
+		return this.infractionsService.GetAllRadar();
 	}
 }

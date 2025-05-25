@@ -19,7 +19,7 @@ public class ProprieteVehiculeApplication {
 		SpringApplication.run(ProprieteVehiculeApplication.class, args);
 	}
 	
-	/*@Bean
+	@Bean
 	CommandLineRunner start(ProprieteRepository proprieteRepository,VehiculeRepository vehiculeRepository) {
 		return args ->{
 			proprieteRepository.save(new Propriete(null,"Chakir","Ayoub","chakir@gmail.com",LocalDate.now(),null));
@@ -31,6 +31,6 @@ public class ProprieteVehiculeApplication {
 			vehiculeRepository.save(new Vehicule(null,"matricule3", "Marque3", Long.valueOf(2020), Long.valueOf(700), null));
 
 		};
-	}*/
+	}
 
 }

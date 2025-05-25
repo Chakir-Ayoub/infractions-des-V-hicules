@@ -10,6 +10,10 @@ services:
       - postgres:/data/postgres
     ports:
       - "5432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4
@@ -23,15 +27,13 @@ services:
       - "5050:80"
     networks:
       - postgres
+    depends_on:
+      - postgres
     restart: unless-stopped
-
 
 networks:
   postgres:
     driver: bridge
-  spring:
-    driver: bridge
-
 
 volumes:
   postgres:

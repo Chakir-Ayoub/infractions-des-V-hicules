@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.example.demo.serviceimpl.InfractionserviceImpl;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -27,7 +28,7 @@ import net.devh.boot.grpc.server.service.GrpcService;
 @GrpcService
 public class InfractionGrpcController extends InfractionServiceImplBase{
 	@Autowired
-	private InfractionsService infractionsService;
+	private InfractionserviceImpl infractionsService;
 	@Autowired
 	private InfractionsMapper infractionsMapper;
 	@Autowired

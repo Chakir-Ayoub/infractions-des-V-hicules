@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,7 @@ public class RadarImpl implements RadarService {
 	@Autowired
 	RadarMapper radarMapper;
 	@Override
+	@CircuitBreaker(name="RadarImpl")
 	public List<RadarDTO> GetAll() {
 		// TODO Auto-generated method stub
 		List<Radar> radars=radarReposirory.findAll();

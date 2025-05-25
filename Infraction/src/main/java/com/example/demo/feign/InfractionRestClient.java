@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.demo.model.Radar;
 
-@FeignClient(url = "http://localhost:8082/Radar",value = "infraction-rest-client")
+@FeignClient(url = "http://localhost:8083/Radar",value = "infraction-rest-client")
 public interface InfractionRestClient {
-	@GetMapping("/radar")
+	@GetMapping("")
 	List<Radar> getRadar();
 	@GetMapping("/radar/{id}")
 	Radar getRadarById(@PathVariable(name = "id") Long id);

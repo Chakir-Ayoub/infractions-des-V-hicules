@@ -9,3 +9,72 @@ spring:
       uri: http://localhost:8071
     compatibility-verifier:
       enabled: false
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      Infractionservice:
+        registerHealthIndicator: true
+        slidingWindowSize: 5
+        slidingWindowType: COUNT_BASED
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 3
+        recordExceptions:
+          - org.springframework.web.client.HttpServerErrorException
+          - java.io.IOException
+          - java.util.concurrent.TimeoutException
+          - org.springframework.web.client.ResourceAccessException
+      organizationService:
+        registerHealthIndicator: true
+        slidingWindowSize: 6
+        slidingWindowType: COUNT_BASED
+        waitDurationInOpenState: 20s
+        failureRateThreshold: 60
+        minimumNumberOfCalls: 6
+        permittedNumberOfCallsInHalfOpenState: 4
+        recordExceptions:
+          - org.springframework.web.client.HttpServerErrorException
+          - java.io.IOException
+          - java.util.concurrent.TimeoutException
+          - org.springframework.web.client.ResourceAccessException
+      InfractionserviceImpl:
+        registerHealthIndicator: true
+        slidingWindowSize: 5
+        slidingWindowType: COUNT_BASED
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 3
+        recordExceptions:
+          - org.springframework.web.client.HttpServerErrorException
+          - java.io.IOException
+          - java.util.concurrent.TimeoutException
+          - org.springframework.web.client.ResourceAccessException
+  bulkhead:
+    instances:
+      bulkheadInfractionService:
+        maxWaitDuration: 10ms
+        maxConcurrentCalls: 20
+      InfractionserviceImpl:
+        maxWaitDuration: 10ms
+        maxConcurrentCalls: 20
+  thread-pool-bulkhead:
+    instances:
+      bulkheadInfractionService:
+        maxThreadPoolSize: 1
+        coreThreadPoolSize: 1
+        queueCapacity: 1
+        keepAliveDuration: 20ms
+      InfractionserviceImpl:
+        maxThreadPoolSize: 1
+        coreThreadPoolSize: 1
+        queueCapacity: 1
+        keepAliveDuration: 20ms
+      retryLicenseService:
+        maxRetryAttempts: 5
+        waitDuration: 10s
+        retryExceptions:
+          - java.util.concurrent.TimeoutException
+
