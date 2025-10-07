@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +24,7 @@ import com.example.request.RadarRequest;
 import com.example.response.RadarResponse;
 
 @RestController
-@RequestMapping("Radar")
+@RequestMapping("/api/v1/radar")
 public class RadarController {
 	
 	@Autowired
@@ -32,6 +33,7 @@ public class RadarController {
 	RadarMapper radarMapper;
 	
 	@GetMapping
+	@PreAuthorize("hasRole('role_admin')")
 	public List<RadarResponse> GetAll(){
 		List<RadarDTO> radarDTO=radarService.GetAll();
 		List<RadarResponse> radarResponses=new ArrayList<>();
@@ -44,6 +46,7 @@ public class RadarController {
 	}
 	
 	@GetMapping(path = "{id}")
+	@PreAuthorize("hasRole('role_user')")
 	public RadarResponse GetById(@PathVariable UUID id){
 		RadarDTO radarDTO=radarService.GetById(id);
 		RadarResponse radarResponse=radarMapper.fromRadarDtoTOresponse(radarDTO);
