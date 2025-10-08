@@ -1,4 +1,18 @@
 services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:25.0.6
+    restart: always
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    command:
+      - start-dev
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - backend
   postgres:
     container_name: postgres
     image: postgres
@@ -32,6 +46,8 @@ services:
     restart: unless-stopped
 
 networks:
+  backend:
+    driver: bridge
   postgres:
     driver: bridge
 
