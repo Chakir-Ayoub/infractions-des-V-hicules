@@ -2,10 +2,13 @@ package com.example.demo.web;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.TimeoutException;
 
+import com.example.demo.feign.RadarRestTemplateClient;
 import com.example.demo.model.Radar;
 import com.example.demo.serviceimpl.InfractionserviceImpl;
+import io.github.resilience4j.retry.annotation.Retry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,15 +27,16 @@ import com.example.demo.response.InfractionsResponse;
 import com.example.demo.service.InfractionsService;
 
 @RestController
-@RequestMapping("infraction")
+@RequestMapping("/api/v1/infraction")
 public class InfractionController {
 	
 	@Autowired
 	private InfractionserviceImpl infractionsService;
 	@Autowired
 	private InfractionsMapper infractionsMapper=new InfractionsMapper();
-
-	@GetMapping
+	@Autowired
+	private RadarRestTemplateClient radarRestTemplateClient;
+	@GetMapping()
 	public List<InfractionsResponse> GetAll(){
 		List<InfractionsDTO> infractionsDTO =infractionsService.GetAll();
 		List<InfractionsResponse> infractionsResponses=new ArrayList<>();
@@ -65,5 +69,10 @@ public class InfractionController {
 	public List<Radar> GetAllRadar() throws TimeoutException {
 
 		return this.infractionsService.GetAllRadar();
+	}
+
+	@GetMapping("radarbyid/{radarid}")
+	public Radar GetById(@PathVariable UUID radarid){
+		return this.radarRestTemplateClient.GetById(radarid);
 	}
 }

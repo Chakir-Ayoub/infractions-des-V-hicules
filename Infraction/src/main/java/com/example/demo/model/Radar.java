@@ -5,8 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data @NoArgsConstructor @AllArgsConstructor @Builder
+import java.util.UUID;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Radar {
+	private UUID id;
 	private Integer maxVitesse;
 	private Float latitude;
 	private Float langitude;

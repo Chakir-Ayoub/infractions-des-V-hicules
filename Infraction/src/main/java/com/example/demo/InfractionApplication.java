@@ -1,7 +1,10 @@
 package com.example.demo;
 
 import java.time.LocalDate;
+import java.util.Collections;
+import java.util.List;
 
+import com.example.demo.filter.UserContextInterceptor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -34,5 +37,21 @@ public class InfractionApplication {
 			infractionsRepository.save(new Infractions(null,LocalDate.now(),Long.valueOf(1),Long.valueOf(5000),Long.valueOf(1200),Long.valueOf(5),Float.valueOf((float)500.0)));
 
 		};
+	}
+
+	@LoadBalanced
+	@Bean
+	public RestTemplate getRestTemplate() {
+		RestTemplate template = new RestTemplate();
+		List interceptors = template.getInterceptors();
+		if (interceptors == null) {
+			template.setInterceptors(Collections.singletonList(
+					new UserContextInterceptor()
+			));
+		}else {
+			interceptors.add(new UserContextInterceptor());
+			template.setInterceptors(interceptors);
+		}
+		return  template;
 	}
 }
