@@ -5,12 +5,15 @@ import java.util.Collections;
 import java.util.List;
 
 import com.example.demo.filter.UserContextInterceptor;
+import lombok.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.JwtDecoders;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.demo.entity.Infractions;
@@ -19,7 +22,7 @@ import com.example.demo.repository.InfractionsRepository;
 @SpringBootApplication
 @EnableFeignClients
 public class InfractionApplication {
-
+	private String issuerUri="http://localhost:8080/realms/spmia-realm";
 	public static void main(String[] args) {
 		SpringApplication.run(InfractionApplication.class, args);
 	}
@@ -54,4 +57,16 @@ public class InfractionApplication {
 		}
 		return  template;
 	}
+
+
+
+	@Bean
+	public JwtDecoder jwtDecoder() {
+		if (issuerUri == null || issuerUri.isEmpty()) {
+			throw new IllegalArgumentException("L'issuer ne peut pas être vide !");
+		}
+		return JwtDecoders.fromIssuerLocation(issuerUri);
+	}
+
+
 }

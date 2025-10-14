@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeoutException;
 
-import com.example.demo.feign.RadarRestTemplateClient;
 import com.example.demo.model.Radar;
 import com.example.demo.serviceimpl.InfractionserviceImpl;
 import io.github.resilience4j.retry.annotation.Retry;
@@ -34,8 +33,7 @@ public class InfractionController {
 	private InfractionserviceImpl infractionsService;
 	@Autowired
 	private InfractionsMapper infractionsMapper=new InfractionsMapper();
-	@Autowired
-	private RadarRestTemplateClient radarRestTemplateClient;
+
 	@GetMapping()
 	public List<InfractionsResponse> GetAll(){
 		List<InfractionsDTO> infractionsDTO =infractionsService.GetAll();
@@ -71,8 +69,8 @@ public class InfractionController {
 		return this.infractionsService.GetAllRadar();
 	}
 
-	@GetMapping("radarbyid/{radarid}")
-	public Radar GetById(@PathVariable UUID radarid){
-		return this.radarRestTemplateClient.GetById(radarid);
-	}
+//	@GetMapping("radarbyid/{radarid}")
+//	public Radar GetById(@PathVariable UUID radarid){
+//		return this.radarRestTemplateClient.GetById(radarid);
+//	}
 }
